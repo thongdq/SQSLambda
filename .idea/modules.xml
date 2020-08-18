@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SQSLambda.iml" filepath="$PROJECT_DIR$/SQSLambda.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SQSLambdaFunction/SQSLambdaFunction.iml" filepath="$PROJECT_DIR$/SQSLambdaFunction/SQSLambdaFunction.iml" />
+    </modules>
+  </component>
+</project>

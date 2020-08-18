@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'AWS
+
+  Sample SAM Template for AWS
+
+  '
+Globals:
+  Function:
+    Timeout: 20
+Resources:
+  CallApiGatewayFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://tafunctions3/b2c611b36497c6c8ec2b0d5ee7bf9a03
+      Handler: ta.App::handleRequest
+      Runtime: java8
+      MemorySize: 512
+      Environment:
+        Variables:
+          PARAM1: VALUE
+      Events:
+        CallApiGatewayEvent:
+          Type: SQS
+          Properties:
+            Queue:
+              Fn::GetAtt:
+              - TaSqsQueue
+              - Arn
+            BatchSize: 10
+  TaSqsQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      FifoQueue: true
+      QueueName: TaSqsQueue.fifo
